@@ -1,0 +1,25 @@
+{
+  "existing": {
+    "ip_information": {
+      "IP_INFORMATION00": {
+        "ip": "sa",
+        "id": "IP_INFORMATION00"
+      },
+      "IP_INFORMATION01": {
+        "ip": "s14",
+        "id": "IP_INFORMATION01"
+      },
+      "IP_INFORMATION02": {
+        "ip": "s1e",
+        "id": "IP_INFORMATION02"
+      }
+    }
+  },
+  "new": {
+    "ip_information": {
+      "ip_information_ref01": {
+        "ip": "s28"
+      }
+    }
+  }
+}

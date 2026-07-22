@@ -1,0 +1,37 @@
+# Entity: ip_information
+
+main: kit: entity: ip_information: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "ip"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "ip_information"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/myip"
+          parts: [
+            "myip"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

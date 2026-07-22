@@ -1,0 +1,69 @@
+{
+  "existing": {
+    "check": {
+      "CHECK00": {
+        "anonymity": "s78",
+        "asn": {},
+        "geo": {},
+        "ip": "s7b",
+        "isp": "s7c",
+        "port": "s7d",
+        "protocol": "s7e",
+        "proxy": "s7f",
+        "response_time": "s80",
+        "rotation": "s81",
+        "type": "s82",
+        "working": false,
+        "id": "CHECK00"
+      },
+      "CHECK01": {
+        "anonymity": "sf0",
+        "asn": {},
+        "geo": {},
+        "ip": "sf3",
+        "isp": "sf4",
+        "port": "sf5",
+        "protocol": "sf6",
+        "proxy": "sf7",
+        "response_time": "sf8",
+        "rotation": "sf9",
+        "type": "sfa",
+        "working": false,
+        "id": "CHECK01"
+      },
+      "CHECK02": {
+        "anonymity": "s168",
+        "asn": {},
+        "geo": {},
+        "ip": "s16b",
+        "isp": "s16c",
+        "port": "s16d",
+        "protocol": "s16e",
+        "proxy": "s16f",
+        "response_time": "s170",
+        "rotation": "s171",
+        "type": "s172",
+        "working": false,
+        "id": "CHECK02"
+      }
+    }
+  },
+  "new": {
+    "check": {
+      "check_ref01": {
+        "anonymity": "s1e0",
+        "asn": {},
+        "geo": {},
+        "ip": "s1e3",
+        "isp": "s1e4",
+        "port": "s1e5",
+        "protocol": "s1e6",
+        "proxy": "s1e7",
+        "response_time": "s1e8",
+        "rotation": "s1e9",
+        "type": "s1ea",
+        "working": false
+      }
+    }
+  }
+}

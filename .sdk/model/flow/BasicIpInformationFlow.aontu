@@ -1,0 +1,28 @@
+# BasicIpInformationFlow
+
+main: kit: flow: BasicIpInformationFlow:
+{
+  entity: "ip_information",
+  kind: "basic",
+  name: "BasicIpInformationFlow",
+  step: [
+    {
+      input: {
+        ref: "ip_information_ref01",
+        srcdatavar: "ip_information_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ip_information_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicIpInformationFlow"
+}

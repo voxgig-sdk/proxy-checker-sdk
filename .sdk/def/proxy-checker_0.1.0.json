@@ -1,0 +1,338 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Proxy Checker API",
+    "description": "This API provides a service for checking various types of proxies including IPv4, SOCKS5, HTTP, and HTTPS. It evaluates properties such as geo-location, ASN, ISP, type (Datacenter, Residential, Mobile), anonymity, and whether the proxy is static or rotating. Additionally, it offers a free online format converter for proxy data.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://github.com/l0v3m0n3y/proxylab"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://proxylab.live/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/myip": {
+      "get": {
+        "summary": "Get My IP",
+        "description": "Returns the IP address of the requesting client",
+        "operationId": "getMyIp",
+        "tags": [
+          "IP Information"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved IP address",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ip": {
+                      "type": "string",
+                      "description": "The IP address of the requesting client",
+                      "example": "203.0.113.1"
+                    }
+                  }
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "example": "203.0.113.1"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/check": {
+      "get": {
+        "summary": "Check Proxy",
+        "description": "Checks various properties of a proxy including IPv4, SOCKS5, HTTP, HTTPS support, geo-location, ASN, ISP, type (Datacenter/Residential/Mobile), anonymity, and whether it is Static or Rotating",
+        "operationId": "checkProxy",
+        "tags": [
+          "Proxy Checker"
+        ],
+        "parameters": [
+          {
+            "name": "proxy",
+            "in": "query",
+            "description": "Proxy address in format IP:PORT (e.g., 1.1.1.1:443)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1.1.1.1:443"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully checked proxy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProxyStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid proxy format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Check Proxy (POST)",
+        "description": "Checks various properties of a proxy including IPv4, SOCKS5, HTTP, HTTPS support, geo-location, ASN, ISP, type (Datacenter/Residential/Mobile), anonymity, and whether it is Static or Rotating",
+        "operationId": "checkProxyPost",
+        "tags": [
+          "Proxy Checker"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "proxy"
+                ],
+                "properties": {
+                  "proxy": {
+                    "type": "string",
+                    "description": "Proxy address in format IP:PORT",
+                    "example": "1.1.1.1:443"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully checked proxy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProxyStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid proxy format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ProxyStatus": {
+        "type": "object",
+        "description": "Status and properties of a checked proxy",
+        "properties": {
+          "proxy": {
+            "type": "string",
+            "description": "The proxy address that was checked",
+            "example": "1.1.1.1:443"
+          },
+          "working": {
+            "type": "boolean",
+            "description": "Whether the proxy is working",
+            "example": true
+          },
+          "ip": {
+            "type": "string",
+            "description": "The IP address of the proxy",
+            "example": "1.1.1.1"
+          },
+          "port": {
+            "type": "integer",
+            "description": "The port number of the proxy",
+            "example": 443
+          },
+          "protocol": {
+            "type": "string",
+            "description": "The protocol type of the proxy",
+            "enum": [
+              "HTTP",
+              "HTTPS",
+              "SOCKS4",
+              "SOCKS5"
+            ],
+            "example": "HTTPS"
+          },
+          "anonymity": {
+            "type": "string",
+            "description": "The anonymity level of the proxy",
+            "enum": [
+              "transparent",
+              "anonymous",
+              "elite"
+            ],
+            "example": "elite"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of proxy infrastructure",
+            "enum": [
+              "Datacenter",
+              "Residential",
+              "Mobile"
+            ],
+            "example": "Datacenter"
+          },
+          "rotation": {
+            "type": "string",
+            "description": "Whether the proxy is static or rotating",
+            "enum": [
+              "Static",
+              "Rotating"
+            ],
+            "example": "Static"
+          },
+          "geo": {
+            "type": "object",
+            "description": "Geographic location information",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "Country name",
+                "example": "United States"
+              },
+              "country_code": {
+                "type": "string",
+                "description": "ISO country code",
+                "example": "US"
+              },
+              "region": {
+                "type": "string",
+                "description": "Region or state",
+                "example": "California"
+              },
+              "city": {
+                "type": "string",
+                "description": "City name",
+                "example": "Los Angeles"
+              },
+              "latitude": {
+                "type": "number",
+                "format": "float",
+                "description": "Latitude coordinate",
+                "example": 34.0522
+              },
+              "longitude": {
+                "type": "number",
+                "format": "float",
+                "description": "Longitude coordinate",
+                "example": -118.2437
+              }
+            }
+          },
+          "asn": {
+            "type": "object",
+            "description": "Autonomous System Number information",
+            "properties": {
+              "number": {
+                "type": "string",
+                "description": "ASN number",
+                "example": "AS13335"
+              },
+              "organization": {
+                "type": "string",
+                "description": "ASN organization name",
+                "example": "Cloudflare, Inc."
+              }
+            }
+          },
+          "isp": {
+            "type": "string",
+            "description": "Internet Service Provider name",
+            "example": "Cloudflare"
+          },
+          "response_time": {
+            "type": "integer",
+            "description": "Response time in milliseconds",
+            "example": 150
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "description": "Error response",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message",
+            "example": "Invalid proxy format"
+          },
+          "message": {
+            "type": "string",
+            "description": "Detailed error description",
+            "example": "Proxy must be in format IP:PORT"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "IP Information",
+      "description": "Endpoints for retrieving IP information"
+    },
+    {
+      "name": "Proxy Checker",
+      "description": "Endpoints for checking proxy status and properties"
+    }
+  ]
+}

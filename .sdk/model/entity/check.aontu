@@ -1,0 +1,131 @@
+# Entity: check
+
+main: kit: entity: check: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "anonymity"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "asn"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "geo"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "ip"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "isp"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "port"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "protocol"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "proxy"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "response_time"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "rotation"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "working"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  name: "check"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/check"
+          parts: [
+            "check"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "1.1.1.1:443"
+                kind: "query"
+                name: "proxy"
+                orig: "proxy"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/check"
+          parts: [
+            "check"
+          ]
+          select: {
+            exist: [
+              "proxy"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

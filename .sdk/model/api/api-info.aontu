@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        url: "https://github.com/l0v3m0n3y/proxylab"
+      }
+      description: "This API provides a service for checking various types of proxies including IPv4, SOCKS5, HTTP, and HTTPS. It evaluates properties such as geo-location, ASN, ISP, type (Datacenter, Residential, Mobile), anonymity, and whether the proxy is static or rotating. Additionally, it offers a free online format converter for proxy data."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://proxylab.live/api"
+        }
+      ]
+      summary: "This API provides a service for checking various types of proxies including IPv4, SOCKS5, HTTP, and HTTPS."
+      title: "Proxy Checker API"
+      version: "1.0.0"
+      website: "https://proxylab.live"
+    }
+  }
+}
+
