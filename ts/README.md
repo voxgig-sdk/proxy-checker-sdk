@@ -49,7 +49,7 @@ try {
 ### 4. Create, update, and remove
 
 ```ts
-// Create — returns the created Check
+// Create — returns the created Check ENTITY (.data() for the record)
 const created = await client.Check().create({
   anonymity: 'example_anonymity',
   asn: {},
@@ -132,7 +132,8 @@ Create a mock client for unit testing — no server required:
 const client = ProxyCheckerSDK.test()
 
 const check = await client.Check().load()
-// check is a bare entity populated with mock response data
+// check is the entity, populated with mock response data
+// — call check.data() for the record itself
 console.log(check)
 ```
 

@@ -43,8 +43,8 @@ class ProxyCheckerTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('PROXYCHECKER_TEST_LIVE');
-        $override = self::getenv('PROXYCHECKER_TEST_OVERRIDE');
+        $live = self::getenv('PROXY_CHECKER_TEST_LIVE');
+        $override = self::getenv('PROXY_CHECKER_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class ProxyCheckerTestRunner
             }
         }
 
-        $explain = self::getenv('PROXYCHECKER_TEST_EXPLAIN');
+        $explain = self::getenv('PROXY_CHECKER_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['PROXYCHECKER_TEST_EXPLAIN'] = $explain;
+            $m['PROXY_CHECKER_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

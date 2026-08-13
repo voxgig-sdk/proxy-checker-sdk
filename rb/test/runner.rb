@@ -23,8 +23,8 @@ module ProxyCheckerTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("PROXYCHECKER_TEST_LIVE")
-    override = getenv("PROXYCHECKER_TEST_OVERRIDE")
+    live = getenv("PROXY_CHECKER_TEST_LIVE")
+    override = getenv("PROXY_CHECKER_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module ProxyCheckerTestRunner
       end
     end
 
-    explain = getenv("PROXYCHECKER_TEST_EXPLAIN")
-    m["PROXYCHECKER_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("PROXY_CHECKER_TEST_EXPLAIN")
+    m["PROXY_CHECKER_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

@@ -19,11 +19,15 @@ import {
 describe('IpInformationDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when PROXYCHECKER_TEST_LIVE=TRUE.
-  afterEach(liveDelay('PROXYCHECKER_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when PROXY_CHECKER_TEST_LIVE=TRUE.
+  afterEach(liveDelay('PROXY_CHECKER_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new ProxyCheckerSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -72,17 +76,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'PROXYCHECKER_TEST_IP_INFORMATION_ENTID': {},
-    'PROXYCHECKER_TEST_LIVE': 'FALSE',
+    'PROXY_CHECKER_TEST_IP_INFORMATION_ENTID': {},
+    'PROXY_CHECKER_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.PROXYCHECKER_TEST_LIVE
+  const live = 'TRUE' === env.PROXY_CHECKER_TEST_LIVE
 
   if (live) {
     const client = new ProxyCheckerSDK({
     })
 
-    let idmap: any = env['PROXYCHECKER_TEST_IP_INFORMATION_ENTID']
+    let idmap: any = env['PROXY_CHECKER_TEST_IP_INFORMATION_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

@@ -26,8 +26,8 @@ import {
 describe('IpInformationEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when PROXYCHECKER_TEST_LIVE=TRUE.
-  afterEach(liveDelay('PROXYCHECKER_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when PROXY_CHECKER_TEST_LIVE=TRUE.
+  afterEach(liveDelay('PROXY_CHECKER_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = ProxyCheckerSDK.test()
@@ -62,7 +62,7 @@ describe('IpInformationEntity', async () => {
     // LOAD
     const ip_information_ref01_ent = client.IpInformation()
     const ip_information_ref01_match_dt0: any = {}
-    const ip_information_ref01_data_dt0 = await ip_information_ref01_ent.load(ip_information_ref01_match_dt0)
+    const ip_information_ref01_data_dt0 = (await ip_information_ref01_ent.load(ip_information_ref01_match_dt0)).data()
     assert(null != ip_information_ref01_data_dt0)
 
 

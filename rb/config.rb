@@ -126,6 +126,7 @@ module ProxyCheckerConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/check",
                   "parts" => [
@@ -160,6 +161,7 @@ module ProxyCheckerConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/check",
                   "parts" => [
@@ -203,6 +205,7 @@ module ProxyCheckerConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/myip",
                   "parts" => [

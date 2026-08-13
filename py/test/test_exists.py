@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# ProxyChecker SDK exists test
 
 import pytest
 from proxychecker_sdk import ProxyCheckerSDK

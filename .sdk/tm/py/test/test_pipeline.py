@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import ProxyCheckerSDK
-from core.error import ProxyCheckerError
-from core.result import ProxyCheckerResult
-from core.response import ProxyCheckerResponse
-from core.spec import ProxyCheckerSpec
-from feature.base_feature import ProxyCheckerBaseFeature
+from projectname_sdk.core.error import ProxyCheckerError
+from projectname_sdk.core.result import ProxyCheckerResult
+from projectname_sdk.core.response import ProxyCheckerResponse
+from projectname_sdk.core.spec import ProxyCheckerSpec
+from projectname_sdk.feature.base_feature import ProxyCheckerBaseFeature
 
 
 def _client():

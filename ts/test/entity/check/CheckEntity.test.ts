@@ -26,8 +26,8 @@ import {
 describe('CheckEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when PROXYCHECKER_TEST_LIVE=TRUE.
-  afterEach(liveDelay('PROXYCHECKER_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when PROXY_CHECKER_TEST_LIVE=TRUE.
+  afterEach(liveDelay('PROXY_CHECKER_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = ProxyCheckerSDK.test()
@@ -62,13 +62,13 @@ describe('CheckEntity', async () => {
     const check_ref01_ent = client.Check()
     let check_ref01_data = setup.data.new.check['check_ref01']
 
-    check_ref01_data = await check_ref01_ent.create(check_ref01_data)
+    check_ref01_data = (await check_ref01_ent.create(check_ref01_data)).data()
     assert(null != check_ref01_data)
 
 
     // LOAD
     const check_ref01_match_dt0: any = {}
-    const check_ref01_data_dt0 = await check_ref01_ent.load(check_ref01_match_dt0)
+    const check_ref01_data_dt0 = (await check_ref01_ent.load(check_ref01_match_dt0)).data()
     assert(null != check_ref01_data_dt0)
 
 

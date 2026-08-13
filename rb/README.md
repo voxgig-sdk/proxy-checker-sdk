@@ -34,7 +34,7 @@ client = ProxyCheckerSDK.new
 
 ```ruby
 begin
-  # load returns the bare Check record (raises on error).
+  # load returns the ENTITY — call data_get for the Check record (raises on error).
   check = client.Check.load()
   puts check
 rescue => err
@@ -45,7 +45,7 @@ end
 ### 4. Create, update, and remove
 
 ```ruby
-# create returns the bare created Check record.
+# create returns the ENTITY — call data_get for the created Check record.
 created = client.Check.create({ "anonymity" => "example_anonymity", "asn" => {} })
 
 ```
@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = ProxyCheckerSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 check = client.Check.load()
 puts check
 ```
@@ -307,7 +308,7 @@ Create an instance: `check = client.Check`
 #### Example: Load
 
 ```ruby
-# load returns the bare Check record (raises on error).
+# load returns the ENTITY — call data_get for the Check record (raises on error).
 check = client.Check.load()
 ```
 
@@ -338,7 +339,7 @@ Create an instance: `ip_information = client.IpInformation`
 #### Example: Load
 
 ```ruby
-# load returns the bare IpInformation record (raises on error).
+# load returns the ENTITY — call data_get for the IpInformation record (raises on error).
 ip_information = client.IpInformation.load()
 ```
 

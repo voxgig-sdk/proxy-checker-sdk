@@ -66,11 +66,11 @@ function check_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["PROXYCHECKER_TEST_CHECK_ENTID"] = {},
-    ["PROXYCHECKER_TEST_LIVE"] = "FALSE",
+    ["PROXY_CHECKER_TEST_CHECK_ENTID"] = {},
+    ["PROXY_CHECKER_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["PROXYCHECKER_TEST_LIVE"] == "TRUE"
+  local live = env["PROXY_CHECKER_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

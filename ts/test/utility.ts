@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.PROXYCHECKER_TEST_LIVE ||
-    'TRUE' === process.env.PROXYCHECKER_TEST_OVERRIDE
+    'TRUE' === process.env.PROXY_CHECKER_TEST_LIVE ||
+    'TRUE' === process.env.PROXY_CHECKER_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.PROXYCHECKER_TEST_EXPLAIN = process.env.PROXYCHECKER_TEST_EXPLAIN || m.PROXYCHECKER_TEST_EXPLAIN
+  m.PROXY_CHECKER_TEST_EXPLAIN = process.env.PROXY_CHECKER_TEST_EXPLAIN || m.PROXY_CHECKER_TEST_EXPLAIN
 
   return m
 }

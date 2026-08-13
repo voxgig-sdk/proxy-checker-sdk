@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from proxychecker_sdk.utility.voxgig_struct import voxgig_struct as vs
 from proxychecker_sdk import ProxyCheckerSDK
-from core import helpers
+from proxychecker_sdk.core import helpers
 from test import runner
 
 
@@ -61,11 +61,11 @@ def _check_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "PROXYCHECKER_TEST_CHECK_ENTID": {},
-        "PROXYCHECKER_TEST_LIVE": "FALSE",
+        "PROXY_CHECKER_TEST_CHECK_ENTID": {},
+        "PROXY_CHECKER_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("PROXYCHECKER_TEST_LIVE") == "TRUE"
+    live = env.get("PROXY_CHECKER_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

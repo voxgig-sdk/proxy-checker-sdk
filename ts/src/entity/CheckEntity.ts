@@ -37,7 +37,7 @@ class CheckEntity extends ProxyCheckerEntityBase<Check> {
 
 
 
-  async load(this: any, reqmatch?: CheckLoadMatch, ctrl?: Control): Promise<Check> {
+  async load(this: any, reqmatch?: CheckLoadMatch, ctrl?: Control): Promise<CheckEntity> {
 
     const utility = this._utility
 
@@ -128,7 +128,15 @@ class CheckEntity extends ProxyCheckerEntityBase<Check> {
         }
       }
 
-      return done(ctx)
+      const out = done(ctx)
+
+      // An operation resolves to the ENTITY, not the raw data — the record
+      // has just been absorbed into this instance and is reached through
+      // data(). `done` still runs: it completes the pipeline and raises on
+      // failure, and when throwing is disabled it hands back the error
+      // payload, which passes through unchanged. See AGENTS.md "Entity
+      // operations return ENTITIES".
+      return (ctx.result && ctx.result.ok) ? this : out
     }
     catch (err: any) {
 
@@ -151,7 +159,7 @@ class CheckEntity extends ProxyCheckerEntityBase<Check> {
 
 
 
-  async create(this: any, reqdata?: CheckCreateData, ctrl?: Control): Promise<Check> {
+  async create(this: any, reqdata?: CheckCreateData, ctrl?: Control): Promise<CheckEntity> {
 
     const utility = this._utility
     const {
@@ -237,7 +245,15 @@ class CheckEntity extends ProxyCheckerEntityBase<Check> {
         }
       }
 
-      return done(ctx)
+      const out = done(ctx)
+
+      // An operation resolves to the ENTITY, not the raw data — the record
+      // has just been absorbed into this instance and is reached through
+      // data(). `done` still runs: it completes the pipeline and raises on
+      // failure, and when throwing is disabled it hands back the error
+      // payload, which passes through unchanged. See AGENTS.md "Entity
+      // operations return ENTITIES".
+      return (ctx.result && ctx.result.ok) ? this : out
     }
     catch (err: any) {
 

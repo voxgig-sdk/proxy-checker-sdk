@@ -35,7 +35,7 @@ $client = new ProxyCheckerSDK();
 
 ```php
 try {
-    // load() returns the bare Check record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Check record (throws on error).
     $check = $client->Check()->load();
     print_r($check);
 } catch (\Throwable $err) {
@@ -46,7 +46,7 @@ try {
 ### 4. Create, update, and remove
 
 ```php
-// create() returns the bare created Check record.
+// create() returns the ENTITY — call data_get() for the created Check record.
 $created = $client->Check()->create(["anonymity" => "example_anonymity", "asn" => []]);
 
 ```
@@ -131,7 +131,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = ProxyCheckerSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $check = $client->Check()->load();
 print_r($check);
 ```
@@ -232,7 +233,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -317,7 +318,7 @@ Create an instance: `$check = $client->Check();`
 #### Example: Load
 
 ```php
-// load() returns the bare Check record (throws on error).
+// load() returns the ENTITY — call data_get() for the Check record (throws on error).
 $check = $client->Check()->load();
 ```
 
@@ -348,7 +349,7 @@ Create an instance: `$ip_information = $client->IpInformation();`
 #### Example: Load
 
 ```php
-// load() returns the bare IpInformation record (throws on error).
+// load() returns the ENTITY — call data_get() for the IpInformation record (throws on error).
 $ip_information = $client->IpInformation()->load();
 ```
 

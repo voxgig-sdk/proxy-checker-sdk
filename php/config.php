@@ -131,6 +131,7 @@ class ProxyCheckerConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/check',
                   'parts' => [
@@ -165,6 +166,7 @@ class ProxyCheckerConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/check',
                   'parts' => [
@@ -208,6 +210,7 @@ class ProxyCheckerConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/myip',
                   'parts' => [
