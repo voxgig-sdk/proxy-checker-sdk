@@ -23,8 +23,8 @@ class ProxyCheckerSDK:
         utility = ProxyCheckerUtility()
         self._utility = utility
 
-        from proxychecker_sdk.config import make_config
-        config = make_config()
+        from proxychecker_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

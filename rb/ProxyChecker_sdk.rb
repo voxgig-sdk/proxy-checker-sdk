@@ -28,7 +28,7 @@ class ProxyCheckerSDK
     utility = ProxyCheckerUtility.new
     @_utility = utility
 
-    config = ProxyCheckerConfig.make_config
+    config = ProxyCheckerConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

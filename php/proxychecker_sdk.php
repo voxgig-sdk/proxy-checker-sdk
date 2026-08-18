@@ -40,7 +40,7 @@ class ProxyCheckerSDK
         $utility = new ProxyCheckerUtility();
         $this->_utility = $utility;
 
-        $config = ProxyCheckerConfig::make_config();
+        $config = ProxyCheckerConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

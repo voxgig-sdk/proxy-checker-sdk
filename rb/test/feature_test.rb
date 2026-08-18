@@ -15,7 +15,7 @@ require_relative "../ProxyChecker_sdk"
 module ProxyCheckerFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = ProxyCheckerConfig.make_config["feature"]
+    f = ProxyCheckerConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 
