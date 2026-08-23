@@ -96,18 +96,18 @@ $check = $client->Check();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `anonymity` | `string` | No |  |
-| `asn` | `array` | No |  |
-| `geo` | `array` | No |  |
-| `ip` | `string` | No |  |
-| `isp` | `string` | No |  |
-| `port` | `int` | No |  |
-| `protocol` | `string` | No |  |
-| `proxy` | `string` | No |  |
-| `response_time` | `int` | No |  |
-| `rotation` | `string` | No |  |
-| `type` | `string` | No |  |
-| `working` | `bool` | No |  |
+| `anonymity` | `string` | No | The anonymity level of the proxy |
+| `asn` | `array` | No | Autonomous System Number information |
+| `geo` | `array` | No | Geographic location information |
+| `ip` | `string` | No | The IP address of the proxy |
+| `isp` | `string` | No | Internet Service Provider name |
+| `port` | `int` | No | The port number of the proxy |
+| `protocol` | `string` | No | The protocol type of the proxy |
+| `proxy` | `string` | No | The proxy address that was checked |
+| `response_time` | `int` | No | Response time in milliseconds |
+| `rotation` | `string` | No | Whether the proxy is static or rotating |
+| `type` | `string` | No | The type of proxy infrastructure |
+| `working` | `bool` | No | Whether the proxy is working |
 
 ### Field Usage by Operation
 
@@ -185,7 +185,7 @@ $ip_information = $client->IpInformation();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ip` | `string` | No |  |
+| `ip` | `string` | No | The IP address of the requesting client |
 
 ### Operations
 

@@ -97,18 +97,18 @@ check = client.Check
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `anonymity` | `String` | No |  |
-| `asn` | `Hash` | No |  |
-| `geo` | `Hash` | No |  |
-| `ip` | `String` | No |  |
-| `isp` | `String` | No |  |
-| `port` | `Integer` | No |  |
-| `protocol` | `String` | No |  |
-| `proxy` | `String` | No |  |
-| `response_time` | `Integer` | No |  |
-| `rotation` | `String` | No |  |
-| `type` | `String` | No |  |
-| `working` | `Boolean` | No |  |
+| `anonymity` | `String` | No | The anonymity level of the proxy |
+| `asn` | `Hash` | No | Autonomous System Number information |
+| `geo` | `Hash` | No | Geographic location information |
+| `ip` | `String` | No | The IP address of the proxy |
+| `isp` | `String` | No | Internet Service Provider name |
+| `port` | `Integer` | No | The port number of the proxy |
+| `protocol` | `String` | No | The protocol type of the proxy |
+| `proxy` | `String` | No | The proxy address that was checked |
+| `response_time` | `Integer` | No | Response time in milliseconds |
+| `rotation` | `String` | No | Whether the proxy is static or rotating |
+| `type` | `String` | No | The type of proxy infrastructure |
+| `working` | `Boolean` | No | Whether the proxy is working |
 
 ### Field Usage by Operation
 
@@ -186,7 +186,7 @@ ip_information = client.IpInformation
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ip` | `String` | No |  |
+| `ip` | `String` | No | The IP address of the requesting client |
 
 ### Operations
 

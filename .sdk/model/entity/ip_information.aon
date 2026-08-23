@@ -8,6 +8,7 @@ main: kit: entity: ip_information: {
     {
       name: "ip"
       req: false
+      short: "The IP address of the requesting client"
       type: "`$STRING`"
     }
   ]

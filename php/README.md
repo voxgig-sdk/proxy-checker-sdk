@@ -255,18 +255,18 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `anonymity` |  |
-| `asn` |  |
-| `geo` |  |
-| `ip` |  |
-| `isp` |  |
-| `port` |  |
-| `protocol` |  |
-| `proxy` |  |
-| `response_time` |  |
-| `rotation` |  |
-| `type` |  |
-| `working` |  |
+| `anonymity` | The anonymity level of the proxy |
+| `asn` | Autonomous System Number information |
+| `geo` | Geographic location information |
+| `ip` | The IP address of the proxy |
+| `isp` | Internet Service Provider name |
+| `port` | The port number of the proxy |
+| `protocol` | The protocol type of the proxy |
+| `proxy` | The proxy address that was checked |
+| `response_time` | Response time in milliseconds |
+| `rotation` | Whether the proxy is static or rotating |
+| `type` | The type of proxy infrastructure |
+| `working` | Whether the proxy is working |
 
 Operations: Create, Load.
 
@@ -276,7 +276,7 @@ API path: `/check`
 
 | Field | Description |
 | --- | --- |
-| `ip` |  |
+| `ip` | The IP address of the requesting client |
 
 Operations: Load.
 
@@ -302,18 +302,18 @@ Create an instance: `$check = $client->Check();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `anonymity` | `string` |  |
-| `asn` | `array` |  |
-| `geo` | `array` |  |
-| `ip` | `string` |  |
-| `isp` | `string` |  |
-| `port` | `int` |  |
-| `protocol` | `string` |  |
-| `proxy` | `string` |  |
-| `response_time` | `int` |  |
-| `rotation` | `string` |  |
-| `type` | `string` |  |
-| `working` | `bool` |  |
+| `anonymity` | `string` | The anonymity level of the proxy |
+| `asn` | `array` | Autonomous System Number information |
+| `geo` | `array` | Geographic location information |
+| `ip` | `string` | The IP address of the proxy |
+| `isp` | `string` | Internet Service Provider name |
+| `port` | `int` | The port number of the proxy |
+| `protocol` | `string` | The protocol type of the proxy |
+| `proxy` | `string` | The proxy address that was checked |
+| `response_time` | `int` | Response time in milliseconds |
+| `rotation` | `string` | Whether the proxy is static or rotating |
+| `type` | `string` | The type of proxy infrastructure |
+| `working` | `bool` | Whether the proxy is working |
 
 #### Example: Load
 
@@ -344,7 +344,7 @@ Create an instance: `$ip_information = $client->IpInformation();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ip` | `string` |  |
+| `ip` | `string` | The IP address of the requesting client |
 
 #### Example: Load
 

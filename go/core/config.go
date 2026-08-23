@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "ProxyChecker",
+			"slug": "proxy-checker",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,30 +37,37 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "anonymity",
+						"short": "The anonymity level of the proxy",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "asn",
+						"short": "Autonomous System Number information",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "geo",
+						"short": "Geographic location information",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "ip",
+						"short": "The IP address of the proxy",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isp",
+						"short": "Internet Service Provider name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "port",
+						"short": "The port number of the proxy",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "protocol",
+						"short": "The protocol type of the proxy",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -68,22 +78,27 @@ func MakeConfig() map[string]any {
 								"type": "`$STRING`",
 							},
 						},
+						"short": "The proxy address that was checked",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "response_time",
+						"short": "Response time in milliseconds",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "rotation",
+						"short": "Whether the proxy is static or rotating",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "The type of proxy infrastructure",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "working",
+						"short": "Whether the proxy is working",
 						"type": "`$BOOLEAN`",
 					},
 				},
@@ -153,6 +168,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "ip",
+						"short": "The IP address of the requesting client",
 						"type": "`$STRING`",
 					},
 				},

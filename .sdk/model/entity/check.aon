@@ -8,36 +8,43 @@ main: kit: entity: check: {
     {
       name: "anonymity"
       req: false
+      short: "The anonymity level of the proxy"
       type: "`$STRING`"
     }
     {
       name: "asn"
       req: false
+      short: "Autonomous System Number information"
       type: "`$OBJECT`"
     }
     {
       name: "geo"
       req: false
+      short: "Geographic location information"
       type: "`$OBJECT`"
     }
     {
       name: "ip"
       req: false
+      short: "The IP address of the proxy"
       type: "`$STRING`"
     }
     {
       name: "isp"
       req: false
+      short: "Internet Service Provider name"
       type: "`$STRING`"
     }
     {
       name: "port"
       req: false
+      short: "The port number of the proxy"
       type: "`$INTEGER`"
     }
     {
       name: "protocol"
       req: false
+      short: "The protocol type of the proxy"
       type: "`$STRING`"
     }
     {
@@ -49,26 +56,31 @@ main: kit: entity: check: {
         }
       }
       req: false
+      short: "The proxy address that was checked"
       type: "`$STRING`"
     }
     {
       name: "response_time"
       req: false
+      short: "Response time in milliseconds"
       type: "`$INTEGER`"
     }
     {
       name: "rotation"
       req: false
+      short: "Whether the proxy is static or rotating"
       type: "`$STRING`"
     }
     {
       name: "type"
       req: false
+      short: "The type of proxy infrastructure"
       type: "`$STRING`"
     }
     {
       name: "working"
       req: false
+      short: "Whether the proxy is working"
       type: "`$BOOLEAN`"
     }
   ]

@@ -6,7 +6,7 @@ The Golang SDK for the ProxyChecker API — an entity-oriented client using stan
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Check(nil)` — each with the same small set of operations (`Load`, `Create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -267,18 +267,18 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"anonymity"` |  |
-| `"asn"` |  |
-| `"geo"` |  |
-| `"ip"` |  |
-| `"isp"` |  |
-| `"port"` |  |
-| `"protocol"` |  |
-| `"proxy"` |  |
-| `"response_time"` |  |
-| `"rotation"` |  |
-| `"type"` |  |
-| `"working"` |  |
+| `"anonymity"` | The anonymity level of the proxy |
+| `"asn"` | Autonomous System Number information |
+| `"geo"` | Geographic location information |
+| `"ip"` | The IP address of the proxy |
+| `"isp"` | Internet Service Provider name |
+| `"port"` | The port number of the proxy |
+| `"protocol"` | The protocol type of the proxy |
+| `"proxy"` | The proxy address that was checked |
+| `"response_time"` | Response time in milliseconds |
+| `"rotation"` | Whether the proxy is static or rotating |
+| `"type"` | The type of proxy infrastructure |
+| `"working"` | Whether the proxy is working |
 
 Operations: Create, Load.
 
@@ -288,7 +288,7 @@ API path: `/check`
 
 | Field | Description |
 | --- | --- |
-| `"ip"` |  |
+| `"ip"` | The IP address of the requesting client |
 
 Operations: Load.
 
@@ -314,18 +314,18 @@ Create an instance: `check := client.Check(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `anonymity` | `string` |  |
-| `asn` | `map[string]any` |  |
-| `geo` | `map[string]any` |  |
-| `ip` | `string` |  |
-| `isp` | `string` |  |
-| `port` | `int` |  |
-| `protocol` | `string` |  |
-| `proxy` | `string` |  |
-| `response_time` | `int` |  |
-| `rotation` | `string` |  |
-| `type` | `string` |  |
-| `working` | `bool` |  |
+| `anonymity` | `string` | The anonymity level of the proxy |
+| `asn` | `map[string]any` | Autonomous System Number information |
+| `geo` | `map[string]any` | Geographic location information |
+| `ip` | `string` | The IP address of the proxy |
+| `isp` | `string` | Internet Service Provider name |
+| `port` | `int` | The port number of the proxy |
+| `protocol` | `string` | The protocol type of the proxy |
+| `proxy` | `string` | The proxy address that was checked |
+| `response_time` | `int` | Response time in milliseconds |
+| `rotation` | `string` | Whether the proxy is static or rotating |
+| `type` | `string` | The type of proxy infrastructure |
+| `working` | `bool` | Whether the proxy is working |
 
 #### Example: Load
 
@@ -363,7 +363,7 @@ Create an instance: `ipInformation := client.IpInformation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ip` | `string` |  |
+| `ip` | `string` | The IP address of the requesting client |
 
 #### Example: Load
 

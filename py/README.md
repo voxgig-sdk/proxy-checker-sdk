@@ -251,18 +251,18 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `anonymity` |  |
-| `asn` |  |
-| `geo` |  |
-| `ip` |  |
-| `isp` |  |
-| `port` |  |
-| `protocol` |  |
-| `proxy` |  |
-| `response_time` |  |
-| `rotation` |  |
-| `type` |  |
-| `working` |  |
+| `anonymity` | The anonymity level of the proxy |
+| `asn` | Autonomous System Number information |
+| `geo` | Geographic location information |
+| `ip` | The IP address of the proxy |
+| `isp` | Internet Service Provider name |
+| `port` | The port number of the proxy |
+| `protocol` | The protocol type of the proxy |
+| `proxy` | The proxy address that was checked |
+| `response_time` | Response time in milliseconds |
+| `rotation` | Whether the proxy is static or rotating |
+| `type` | The type of proxy infrastructure |
+| `working` | Whether the proxy is working |
 
 Operations: Create, Load.
 
@@ -272,7 +272,7 @@ API path: `/check`
 
 | Field | Description |
 | --- | --- |
-| `ip` |  |
+| `ip` | The IP address of the requesting client |
 
 Operations: Load.
 
@@ -298,18 +298,18 @@ Create an instance: `check = client.Check()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `anonymity` | `str` |  |
-| `asn` | `dict` |  |
-| `geo` | `dict` |  |
-| `ip` | `str` |  |
-| `isp` | `str` |  |
-| `port` | `int` |  |
-| `protocol` | `str` |  |
-| `proxy` | `str` |  |
-| `response_time` | `int` |  |
-| `rotation` | `str` |  |
-| `type` | `str` |  |
-| `working` | `bool` |  |
+| `anonymity` | `str` | The anonymity level of the proxy |
+| `asn` | `dict` | Autonomous System Number information |
+| `geo` | `dict` | Geographic location information |
+| `ip` | `str` | The IP address of the proxy |
+| `isp` | `str` | Internet Service Provider name |
+| `port` | `int` | The port number of the proxy |
+| `protocol` | `str` | The protocol type of the proxy |
+| `proxy` | `str` | The proxy address that was checked |
+| `response_time` | `int` | Response time in milliseconds |
+| `rotation` | `str` | Whether the proxy is static or rotating |
+| `type` | `str` | The type of proxy infrastructure |
+| `working` | `bool` | Whether the proxy is working |
 
 #### Example: Load
 
@@ -339,7 +339,7 @@ Create an instance: `ip_information = client.IpInformation()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ip` | `str` |  |
+| `ip` | `str` | The IP address of the requesting client |
 
 #### Example: Load
 

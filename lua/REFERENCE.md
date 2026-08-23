@@ -94,18 +94,18 @@ local check = client:Check(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `anonymity` | `string` | No |  |
-| `asn` | `table` | No |  |
-| `geo` | `table` | No |  |
-| `ip` | `string` | No |  |
-| `isp` | `string` | No |  |
-| `port` | `number` | No |  |
-| `protocol` | `string` | No |  |
-| `proxy` | `string` | No |  |
-| `response_time` | `number` | No |  |
-| `rotation` | `string` | No |  |
-| `type` | `string` | No |  |
-| `working` | `boolean` | No |  |
+| `anonymity` | `string` | No | The anonymity level of the proxy |
+| `asn` | `table` | No | Autonomous System Number information |
+| `geo` | `table` | No | Geographic location information |
+| `ip` | `string` | No | The IP address of the proxy |
+| `isp` | `string` | No | Internet Service Provider name |
+| `port` | `number` | No | The port number of the proxy |
+| `protocol` | `string` | No | The protocol type of the proxy |
+| `proxy` | `string` | No | The proxy address that was checked |
+| `response_time` | `number` | No | Response time in milliseconds |
+| `rotation` | `string` | No | Whether the proxy is static or rotating |
+| `type` | `string` | No | The type of proxy infrastructure |
+| `working` | `boolean` | No | Whether the proxy is working |
 
 ### Field Usage by Operation
 
@@ -183,7 +183,7 @@ local ip_information = client:IpInformation(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ip` | `string` | No |  |
+| `ip` | `string` | No | The IP address of the requesting client |
 
 ### Operations
 

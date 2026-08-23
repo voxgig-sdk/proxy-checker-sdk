@@ -36,42 +36,49 @@
               "active": true,
               "name": "anonymity",
               "req": false,
+              "short": "The anonymity level of the proxy",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "asn",
               "req": false,
+              "short": "Autonomous System Number information",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "geo",
               "req": false,
+              "short": "Geographic location information",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "ip",
               "req": false,
+              "short": "The IP address of the proxy",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "isp",
               "req": false,
+              "short": "Internet Service Provider name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "port",
               "req": false,
+              "short": "The port number of the proxy",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "protocol",
               "req": false,
+              "short": "The protocol type of the proxy",
               "type": "`$STRING`"
             },
             {
@@ -84,30 +91,35 @@
                 }
               },
               "req": false,
+              "short": "The proxy address that was checked",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "response_time",
               "req": false,
+              "short": "Response time in milliseconds",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "rotation",
               "req": false,
+              "short": "Whether the proxy is static or rotating",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "The type of proxy infrastructure",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "working",
               "req": false,
+              "short": "Whether the proxy is working",
               "type": "`$BOOLEAN`"
             }
           ],
@@ -186,6 +198,7 @@
               "active": true,
               "name": "ip",
               "req": false,
+              "short": "The IP address of the requesting client",
               "type": "`$STRING`"
             }
           ],

@@ -236,18 +236,18 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `anonymity` |  |
-| `asn` |  |
-| `geo` |  |
-| `ip` |  |
-| `isp` |  |
-| `port` |  |
-| `protocol` |  |
-| `proxy` |  |
-| `response_time` |  |
-| `rotation` |  |
-| `type` |  |
-| `working` |  |
+| `anonymity` | The anonymity level of the proxy |
+| `asn` | Autonomous System Number information |
+| `geo` | Geographic location information |
+| `ip` | The IP address of the proxy |
+| `isp` | Internet Service Provider name |
+| `port` | The port number of the proxy |
+| `protocol` | The protocol type of the proxy |
+| `proxy` | The proxy address that was checked |
+| `response_time` | Response time in milliseconds |
+| `rotation` | Whether the proxy is static or rotating |
+| `type` | The type of proxy infrastructure |
+| `working` | Whether the proxy is working |
 
 Operations: Create, Load.
 
@@ -257,7 +257,7 @@ API path: `/check`
 
 | Field | Description |
 | --- | --- |
-| `ip` |  |
+| `ip` | The IP address of the requesting client |
 
 Operations: Load.
 
@@ -283,18 +283,18 @@ Create an instance: `local check = client:Check(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `anonymity` | `string` |  |
-| `asn` | `table` |  |
-| `geo` | `table` |  |
-| `ip` | `string` |  |
-| `isp` | `string` |  |
-| `port` | `number` |  |
-| `protocol` | `string` |  |
-| `proxy` | `string` |  |
-| `response_time` | `number` |  |
-| `rotation` | `string` |  |
-| `type` | `string` |  |
-| `working` | `boolean` |  |
+| `anonymity` | `string` | The anonymity level of the proxy |
+| `asn` | `table` | Autonomous System Number information |
+| `geo` | `table` | Geographic location information |
+| `ip` | `string` | The IP address of the proxy |
+| `isp` | `string` | Internet Service Provider name |
+| `port` | `number` | The port number of the proxy |
+| `protocol` | `string` | The protocol type of the proxy |
+| `proxy` | `string` | The proxy address that was checked |
+| `response_time` | `number` | Response time in milliseconds |
+| `rotation` | `string` | Whether the proxy is static or rotating |
+| `type` | `string` | The type of proxy infrastructure |
+| `working` | `boolean` | Whether the proxy is working |
 
 #### Example: Load
 
@@ -324,7 +324,7 @@ Create an instance: `local ip_information = client:IpInformation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ip` | `string` |  |
+| `ip` | `string` | The IP address of the requesting client |
 
 #### Example: Load
 

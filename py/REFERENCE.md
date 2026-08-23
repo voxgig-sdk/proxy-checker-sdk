@@ -91,18 +91,18 @@ check = client.Check()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `anonymity` | `str` | No |  |
-| `asn` | `dict` | No |  |
-| `geo` | `dict` | No |  |
-| `ip` | `str` | No |  |
-| `isp` | `str` | No |  |
-| `port` | `int` | No |  |
-| `protocol` | `str` | No |  |
-| `proxy` | `str` | No |  |
-| `response_time` | `int` | No |  |
-| `rotation` | `str` | No |  |
-| `type` | `str` | No |  |
-| `working` | `bool` | No |  |
+| `anonymity` | `str` | No | The anonymity level of the proxy |
+| `asn` | `dict` | No | Autonomous System Number information |
+| `geo` | `dict` | No | Geographic location information |
+| `ip` | `str` | No | The IP address of the proxy |
+| `isp` | `str` | No | Internet Service Provider name |
+| `port` | `int` | No | The port number of the proxy |
+| `protocol` | `str` | No | The protocol type of the proxy |
+| `proxy` | `str` | No | The proxy address that was checked |
+| `response_time` | `int` | No | Response time in milliseconds |
+| `rotation` | `str` | No | Whether the proxy is static or rotating |
+| `type` | `str` | No | The type of proxy infrastructure |
+| `working` | `bool` | No | Whether the proxy is working |
 
 ### Field Usage by Operation
 
@@ -179,7 +179,7 @@ ip_information = client.IpInformation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ip` | `str` | No |  |
+| `ip` | `str` | No | The IP address of the requesting client |
 
 ### Operations
 

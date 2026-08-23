@@ -102,18 +102,18 @@ fmt.Println(check.GetName()) // "check"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `anonymity` | `string` | No |  |
-| `asn` | `map[string]any` | No |  |
-| `geo` | `map[string]any` | No |  |
-| `ip` | `string` | No |  |
-| `isp` | `string` | No |  |
-| `port` | `int` | No |  |
-| `protocol` | `string` | No |  |
-| `proxy` | `string` | No |  |
-| `response_time` | `int` | No |  |
-| `rotation` | `string` | No |  |
-| `type` | `string` | No |  |
-| `working` | `bool` | No |  |
+| `anonymity` | `string` | No | The anonymity level of the proxy |
+| `asn` | `map[string]any` | No | Autonomous System Number information |
+| `geo` | `map[string]any` | No | Geographic location information |
+| `ip` | `string` | No | The IP address of the proxy |
+| `isp` | `string` | No | Internet Service Provider name |
+| `port` | `int` | No | The port number of the proxy |
+| `protocol` | `string` | No | The protocol type of the proxy |
+| `proxy` | `string` | No | The proxy address that was checked |
+| `response_time` | `int` | No | Response time in milliseconds |
+| `rotation` | `string` | No | Whether the proxy is static or rotating |
+| `type` | `string` | No | The type of proxy infrastructure |
+| `working` | `bool` | No | Whether the proxy is working |
 
 ### Field Usage by Operation
 
@@ -194,7 +194,7 @@ fmt.Println(ipInformation.GetName()) // "ip_information"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ip` | `string` | No |  |
+| `ip` | `string` | No | The IP address of the requesting client |
 
 ### Operations
 

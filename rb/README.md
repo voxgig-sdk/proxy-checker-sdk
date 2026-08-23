@@ -245,18 +245,18 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `anonymity` |  |
-| `asn` |  |
-| `geo` |  |
-| `ip` |  |
-| `isp` |  |
-| `port` |  |
-| `protocol` |  |
-| `proxy` |  |
-| `response_time` |  |
-| `rotation` |  |
-| `type` |  |
-| `working` |  |
+| `anonymity` | The anonymity level of the proxy |
+| `asn` | Autonomous System Number information |
+| `geo` | Geographic location information |
+| `ip` | The IP address of the proxy |
+| `isp` | Internet Service Provider name |
+| `port` | The port number of the proxy |
+| `protocol` | The protocol type of the proxy |
+| `proxy` | The proxy address that was checked |
+| `response_time` | Response time in milliseconds |
+| `rotation` | Whether the proxy is static or rotating |
+| `type` | The type of proxy infrastructure |
+| `working` | Whether the proxy is working |
 
 Operations: Create, Load.
 
@@ -266,7 +266,7 @@ API path: `/check`
 
 | Field | Description |
 | --- | --- |
-| `ip` |  |
+| `ip` | The IP address of the requesting client |
 
 Operations: Load.
 
@@ -292,18 +292,18 @@ Create an instance: `check = client.Check`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `anonymity` | `String` |  |
-| `asn` | `Hash` |  |
-| `geo` | `Hash` |  |
-| `ip` | `String` |  |
-| `isp` | `String` |  |
-| `port` | `Integer` |  |
-| `protocol` | `String` |  |
-| `proxy` | `String` |  |
-| `response_time` | `Integer` |  |
-| `rotation` | `String` |  |
-| `type` | `String` |  |
-| `working` | `Boolean` |  |
+| `anonymity` | `String` | The anonymity level of the proxy |
+| `asn` | `Hash` | Autonomous System Number information |
+| `geo` | `Hash` | Geographic location information |
+| `ip` | `String` | The IP address of the proxy |
+| `isp` | `String` | Internet Service Provider name |
+| `port` | `Integer` | The port number of the proxy |
+| `protocol` | `String` | The protocol type of the proxy |
+| `proxy` | `String` | The proxy address that was checked |
+| `response_time` | `Integer` | Response time in milliseconds |
+| `rotation` | `String` | Whether the proxy is static or rotating |
+| `type` | `String` | The type of proxy infrastructure |
+| `working` | `Boolean` | Whether the proxy is working |
 
 #### Example: Load
 
@@ -334,7 +334,7 @@ Create an instance: `ip_information = client.IpInformation`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ip` | `String` |  |
+| `ip` | `String` | The IP address of the requesting client |
 
 #### Example: Load
 
