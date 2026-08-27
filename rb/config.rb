@@ -28,6 +28,7 @@ module ProxyCheckerConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {

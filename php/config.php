@@ -42,6 +42,7 @@ class ProxyCheckerConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
