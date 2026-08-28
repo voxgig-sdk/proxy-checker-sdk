@@ -63,54 +63,10 @@ Check = Struct.new(
 
 # Request payload for Check#load.
 #
-# @!attribute [rw] anonymity
-#   @return [String, nil]
-#
-# @!attribute [rw] asn
-#   @return [Hash, nil]
-#
-# @!attribute [rw] geo
-#   @return [Hash, nil]
-#
-# @!attribute [rw] ip
-#   @return [String, nil]
-#
-# @!attribute [rw] isp
-#   @return [String, nil]
-#
-# @!attribute [rw] port
-#   @return [Integer, nil]
-#
-# @!attribute [rw] protocol
-#   @return [String, nil]
-#
 # @!attribute [rw] proxy
-#   @return [String, nil]
-#
-# @!attribute [rw] response_time
-#   @return [Integer, nil]
-#
-# @!attribute [rw] rotation
-#   @return [String, nil]
-#
-# @!attribute [rw] type
-#   @return [String, nil]
-#
-# @!attribute [rw] working
-#   @return [Boolean, nil]
+#   @return [String]
 CheckLoadMatch = Struct.new(
-  :anonymity,
-  :asn,
-  :geo,
-  :ip,
-  :isp,
-  :port,
-  :protocol,
   :proxy,
-  :response_time,
-  :rotation,
-  :type,
-  :working,
   keyword_init: true
 )
 

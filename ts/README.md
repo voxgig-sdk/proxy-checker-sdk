@@ -39,7 +39,7 @@ const client = new ProxyCheckerSDK()
 
 ```ts
 try {
-  const check = await client.Check().load()
+  const check = await client.Check().load({ proxy: 'example_proxy' })
   console.log(check)
 } catch (err) {
   console.error('load failed:', err)
@@ -64,7 +64,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const check = await client.Check().load()
+  const check = await client.Check().load({ proxy: "example" })
   console.log(check)
 } catch (err) {
   console.error('load failed:', err)
@@ -131,7 +131,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = ProxyCheckerSDK.test()
 
-const check = await client.Check().load()
+const check = await client.Check().load({ proxy: 'example_proxy' })
 // check is the entity, populated with mock response data
 // — call check.data() for the record itself
 console.log(check)
@@ -152,7 +152,7 @@ Entity instances remember their last match and data:
 const entity = client.Check()
 
 // First call runs the operation and stores its result
-await entity.load()
+await entity.load({ proxy: 'example_proxy' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -361,7 +361,7 @@ Create an instance: `const check = client.Check()`
 #### Example: Load
 
 ```ts
-const check = await client.Check().load()
+const check = await client.Check().load({ proxy: 'proxy' })
 ```
 
 #### Example: Create
@@ -393,6 +393,29 @@ Create an instance: `const ip_information = client.IpInformation()`
 ```ts
 const ip_information = await client.IpInformation().load()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -465,7 +488,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const check = client.Check()
-await check.load()
+await check.load({ proxy: "example" })
 
 // check.data() now returns the check data from the last `load`
 // check.match() returns the last match criteria

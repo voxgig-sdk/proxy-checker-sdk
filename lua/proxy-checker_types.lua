@@ -21,18 +21,7 @@
 ---@field working? boolean
 
 ---@class CheckLoadMatch
----@field anonymity? string
----@field asn? table
----@field geo? table
----@field ip? string
----@field isp? string
----@field port? number
----@field protocol? string
----@field proxy? string
----@field response_time? number
----@field rotation? string
----@field type? string
----@field working? boolean
+---@field proxy string
 
 ---@class CheckCreateData
 ---@field anonymity? string

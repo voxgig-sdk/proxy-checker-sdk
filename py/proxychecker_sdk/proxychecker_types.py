@@ -31,19 +31,8 @@ class Check(TypedDict, total=False):
     working: bool
 
 
-class CheckLoadMatch(TypedDict, total=False):
-    anonymity: str
-    asn: dict
-    geo: dict
-    ip: str
-    isp: str
-    port: int
-    protocol: str
+class CheckLoadMatch(TypedDict):
     proxy: str
-    response_time: int
-    rotation: str
-    type: str
-    working: bool
 
 
 class CheckCreateData(TypedDict, total=False):

@@ -32,18 +32,7 @@ class Check
 /** Request payload for Check#load. */
 class CheckLoadMatch
 {
-    public ?string $anonymity = null;
-    public ?array $asn = null;
-    public ?array $geo = null;
-    public ?string $ip = null;
-    public ?string $isp = null;
-    public ?int $port = null;
-    public ?string $protocol = null;
-    public ?string $proxy = null;
-    public ?int $response_time = null;
-    public ?string $rotation = null;
-    public ?string $type = null;
-    public ?bool $working = null;
+    public string $proxy;
 }
 
 /** Request payload for Check#create. */

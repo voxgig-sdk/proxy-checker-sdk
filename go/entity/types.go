@@ -30,18 +30,7 @@ type Check struct {
 
 // CheckLoadMatch is the typed request payload for Check.LoadTyped.
 type CheckLoadMatch struct {
-	Anonymity *string `json:"anonymity,omitempty"`
-	Asn *map[string]any `json:"asn,omitempty"`
-	Geo *map[string]any `json:"geo,omitempty"`
-	Ip *string `json:"ip,omitempty"`
-	Isp *string `json:"isp,omitempty"`
-	Port *int `json:"port,omitempty"`
-	Protocol *string `json:"protocol,omitempty"`
-	Proxy *string `json:"proxy,omitempty"`
-	ResponseTime *int `json:"response_time,omitempty"`
-	Rotation *string `json:"rotation,omitempty"`
-	Type *string `json:"type,omitempty"`
-	Working *bool `json:"working,omitempty"`
+	Proxy string `json:"proxy"`
 }
 
 // CheckCreateData is the typed request payload for Check.CreateTyped.

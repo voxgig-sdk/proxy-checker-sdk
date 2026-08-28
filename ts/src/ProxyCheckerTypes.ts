@@ -21,18 +21,7 @@ export interface Check {
 }
 
 export interface CheckLoadMatch {
-  anonymity?: string
-  asn?: Record<string, any>
-  geo?: Record<string, any>
-  ip?: string
-  isp?: string
-  port?: number
-  protocol?: string
-  proxy?: string
-  response_time?: number
-  rotation?: string
-  type?: string
-  working?: boolean
+  proxy: string
 }
 
 export interface CheckCreateData {

@@ -130,10 +130,11 @@ class ProxyCheckerMakeOptions
 
         $optspec = [
             'apikey' => '',
+            'secret' => '',
             'base' => 'http://localhost:8000',
             'prefix' => '',
             'suffix' => '',
-            'auth' => ['prefix' => ''],
+            'auth' => ['prefix' => '', 'basic' => false],
             'headers' => ['`$CHILD`' => '`$STRING`'],
             'allow' => [
                 'method' => 'GET,PUT,POST,PATCH,DELETE,OPTIONS',

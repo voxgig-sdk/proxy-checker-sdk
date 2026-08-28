@@ -42,7 +42,7 @@ client = ProxyCheckerSDK()
 
 ```python
 try:
-    check = client.Check().load()
+    check = client.Check().load({"proxy": "example_proxy"})
     print(check)
 except Exception as err:
     print(f"load failed: {err}")
@@ -63,7 +63,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    check = client.Check().load()
+    check = client.Check().load({"proxy": "example"})
     print(check)
 except Exception as err:
     print(f"load failed: {err}")
@@ -132,7 +132,7 @@ client = ProxyCheckerSDK.test()
 
 # Entity ops return the ENTITY and raises on error;
 # call data_get() for the record.
-check = client.Check().load()
+check = client.Check().load({"proxy": "example"})
 # check contains the mock response record
 ```
 
@@ -314,7 +314,7 @@ Create an instance: `check = client.Check()`
 #### Example: Load
 
 ```python
-check = client.Check().load()
+check = client.Check().load({"proxy": "proxy"})
 ```
 
 #### Example: Create
@@ -346,6 +346,29 @@ Create an instance: `ip_information = client.IpInformation()`
 ```python
 ip_information = client.IpInformation().load()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -424,7 +447,7 @@ stores the returned data and match criteria internally.
 
 ```python
 check = client.Check()
-check.load()
+check.load({"proxy": "example"})
 
 # check.data_get() now returns the check data from the last load
 # check.match_get() returns the last match criteria
