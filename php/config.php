@@ -136,13 +136,18 @@ class ProxyCheckerConfig
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/check',
-                  'parts' => [
-                    'check',
+                  'segments' => [
+                    [
+                      'lit' => 'check',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'check',
                   ],
                 ],
               ],
@@ -167,8 +172,10 @@ class ProxyCheckerConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/check',
-                  'parts' => [
-                    'check',
+                  'segments' => [
+                    [
+                      'lit' => 'check',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -178,6 +185,9 @@ class ProxyCheckerConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'check',
                   ],
                 ],
               ],
@@ -206,13 +216,18 @@ class ProxyCheckerConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/myip',
-                  'parts' => [
-                    'myip',
+                  'segments' => [
+                    [
+                      'lit' => 'myip',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'myip',
                   ],
                 ],
               ],

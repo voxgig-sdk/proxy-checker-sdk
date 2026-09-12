@@ -21,8 +21,10 @@ main: kit: entity: ip_information: {
         {
           method: "GET"
           orig: "/myip"
-          parts: [
-            "myip"
+          segments: [
+            {
+              lit: "myip"
+            }
           ]
           transform: {
             req: "`reqdata`"

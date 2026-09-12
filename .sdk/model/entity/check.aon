@@ -93,8 +93,10 @@ main: kit: entity: check: {
         {
           method: "POST"
           orig: "/check"
-          parts: [
-            "check"
+          segments: [
+            {
+              lit: "check"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -121,8 +123,10 @@ main: kit: entity: check: {
           }
           method: "GET"
           orig: "/check"
-          parts: [
-            "check"
+          segments: [
+            {
+              lit: "check"
+            }
           ]
           select: {
             exist: [

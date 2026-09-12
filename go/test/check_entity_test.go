@@ -52,7 +52,7 @@ func TestCheckEntity(t *testing.T) {
 		// CREATE
 		checkRef01Ent := client.Check(nil)
 		checkRef01Data := core.ToMapAny(vs.GetProp(
-			vs.GetPath([]any{"new", "check"}, setup.data), "check_ref01"))
+			vs.GetPath(setup.data, []any{"new", "check"}), "check_ref01"))
 
 		checkRef01DataResult, err := checkRef01Ent.Create(checkRef01Data, nil)
 		if err != nil {
@@ -100,7 +100,7 @@ func checkBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"check01", "check02", "check03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -128,10 +128,22 @@ func checkBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["PROXY_CHECKER_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewProxyCheckerSDK(core.ToMapAny(mergedOpts))
 	}
