@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ProxyCheckerSDK } from '@voxgig-sdk/proxy-checker'
+import { ProxyCheckerSDK } from '@voxgig-sdk/proxy-checker-sdk'
 
 const client = new ProxyCheckerSDK()
 ```
@@ -477,7 +477,7 @@ proxy-checker/
 Import the SDK from the package root:
 
 ```ts
-import { ProxyCheckerSDK } from '@voxgig-sdk/proxy-checker'
+import { ProxyCheckerSDK } from '@voxgig-sdk/proxy-checker-sdk'
 ```
 
 ### Entity state

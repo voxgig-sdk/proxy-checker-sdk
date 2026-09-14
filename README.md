@@ -105,7 +105,7 @@ local result, err = client:Check():load({ proxy = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/proxy-checker` | publish pending — [install from git tag](https://github.com/voxgig-sdk/proxy-checker-sdk/releases) |
+| TypeScript | `@voxgig-sdk/proxy-checker-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/proxy-checker-sdk/releases) |
 | Python | `voxgig-sdk-proxy-checker` | publish pending — [install from git tag](https://github.com/voxgig-sdk/proxy-checker-sdk/releases) |
 | PHP | `voxgig-sdk/proxy-checker` | publish pending — [install from git tag](https://github.com/voxgig-sdk/proxy-checker-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/proxy-checker-sdk/go` | `go get github.com/voxgig-sdk/proxy-checker-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Check():load({ proxy = "example" })
 ### TypeScript
 
 ```ts
-import { ProxyCheckerSDK } from '@voxgig-sdk/proxy-checker'
+import { ProxyCheckerSDK } from '@voxgig-sdk/proxy-checker-sdk'
 
 const client = new ProxyCheckerSDK()
 
