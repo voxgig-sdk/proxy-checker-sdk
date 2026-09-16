@@ -1,12 +1,18 @@
 # ProxyChecker SDK feature factory
 
 from proxychecker_sdk.feature.base_feature import ProxyCheckerBaseFeature
+from proxychecker_sdk.feature.ratelimit_feature import ProxyCheckerRatelimitFeature
+from proxychecker_sdk.feature.retry_feature import ProxyCheckerRetryFeature
 from proxychecker_sdk.feature.test_feature import ProxyCheckerTestFeature
+from proxychecker_sdk.feature.timeout_feature import ProxyCheckerTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: ProxyCheckerBaseFeature(),
+    "ratelimit": lambda: ProxyCheckerRatelimitFeature(),
+    "retry": lambda: ProxyCheckerRetryFeature(),
     "test": lambda: ProxyCheckerTestFeature(),
+    "timeout": lambda: ProxyCheckerTimeoutFeature(),
 }
 
 

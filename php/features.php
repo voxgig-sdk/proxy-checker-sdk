@@ -4,7 +4,10 @@ declare(strict_types=1);
 // ProxyChecker SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class ProxyCheckerFeatures
@@ -14,8 +17,14 @@ class ProxyCheckerFeatures
         switch ($name) {
             case "base":
                 return new ProxyCheckerBaseFeature();
+            case "ratelimit":
+                return new ProxyCheckerRatelimitFeature();
+            case "retry":
+                return new ProxyCheckerRetryFeature();
             case "test":
                 return new ProxyCheckerTestFeature();
+            case "timeout":
+                return new ProxyCheckerTimeoutFeature();
             default:
                 return new ProxyCheckerBaseFeature();
         }
@@ -31,7 +40,10 @@ class ProxyCheckerFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

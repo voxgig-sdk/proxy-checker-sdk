@@ -7,10 +7,10 @@
         "geo": {},
         "ip": "s7b",
         "isp": "s7c",
-        "port": "s7d",
+        "port": 125,
         "protocol": "s7e",
         "proxy": "s7f",
-        "response_time": "s80",
+        "response_time": 128,
         "rotation": "s81",
         "type": "s82",
         "working": false,
@@ -22,10 +22,10 @@
         "geo": {},
         "ip": "sf3",
         "isp": "sf4",
-        "port": "sf5",
+        "port": 245,
         "protocol": "sf6",
         "proxy": "sf7",
-        "response_time": "sf8",
+        "response_time": 248,
         "rotation": "sf9",
         "type": "sfa",
         "working": false,
@@ -37,10 +37,10 @@
         "geo": {},
         "ip": "s16b",
         "isp": "s16c",
-        "port": "s16d",
+        "port": 365,
         "protocol": "s16e",
         "proxy": "s16f",
-        "response_time": "s170",
+        "response_time": 368,
         "rotation": "s171",
         "type": "s172",
         "working": false,
@@ -56,13 +56,434 @@
         "geo": {},
         "ip": "s1e3",
         "isp": "s1e4",
-        "port": "s1e5",
+        "port": 485,
         "protocol": "s1e6",
         "proxy": "s1e7",
-        "response_time": "s1e8",
+        "response_time": 488,
         "rotation": "s1e9",
         "type": "s1ea",
         "working": false
+      }
+    }
+  },
+  "requests": {
+    "POST /check": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "checkProxyPost",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "proxy": {
+                    "description": "Proxy address in format IP:PORT",
+                    "example": "1.1.1.1:443",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "proxy"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Status and properties of a checked proxy",
+                  "properties": {
+                    "anonymity": {
+                      "description": "The anonymity level of the proxy",
+                      "enum": [
+                        "transparent",
+                        "anonymous",
+                        "elite"
+                      ],
+                      "example": "elite",
+                      "type": "string"
+                    },
+                    "asn": {
+                      "description": "Autonomous System Number information",
+                      "properties": {
+                        "number": {
+                          "description": "ASN number",
+                          "example": "AS13335",
+                          "type": "string"
+                        },
+                        "organization": {
+                          "description": "ASN organization name",
+                          "example": "Cloudflare, Inc.",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "geo": {
+                      "description": "Geographic location information",
+                      "properties": {
+                        "city": {
+                          "description": "City name",
+                          "example": "Los Angeles",
+                          "type": "string"
+                        },
+                        "country": {
+                          "description": "Country name",
+                          "example": "United States",
+                          "type": "string"
+                        },
+                        "country_code": {
+                          "description": "ISO country code",
+                          "example": "US",
+                          "type": "string"
+                        },
+                        "latitude": {
+                          "description": "Latitude coordinate",
+                          "example": 34.0522,
+                          "format": "float",
+                          "type": "number"
+                        },
+                        "longitude": {
+                          "description": "Longitude coordinate",
+                          "example": -118.2437,
+                          "format": "float",
+                          "type": "number"
+                        },
+                        "region": {
+                          "description": "Region or state",
+                          "example": "California",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "ip": {
+                      "description": "The IP address of the proxy",
+                      "example": "1.1.1.1",
+                      "type": "string"
+                    },
+                    "isp": {
+                      "description": "Internet Service Provider name",
+                      "example": "Cloudflare",
+                      "type": "string"
+                    },
+                    "port": {
+                      "description": "The port number of the proxy",
+                      "example": 443,
+                      "type": "integer"
+                    },
+                    "protocol": {
+                      "description": "The protocol type of the proxy",
+                      "enum": [
+                        "HTTP",
+                        "HTTPS",
+                        "SOCKS4",
+                        "SOCKS5"
+                      ],
+                      "example": "HTTPS",
+                      "type": "string"
+                    },
+                    "proxy": {
+                      "description": "The proxy address that was checked",
+                      "example": "1.1.1.1:443",
+                      "type": "string"
+                    },
+                    "response_time": {
+                      "description": "Response time in milliseconds",
+                      "example": 150,
+                      "type": "integer"
+                    },
+                    "rotation": {
+                      "description": "Whether the proxy is static or rotating",
+                      "enum": [
+                        "Static",
+                        "Rotating"
+                      ],
+                      "example": "Static",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "The type of proxy infrastructure",
+                      "enum": [
+                        "Datacenter",
+                        "Residential",
+                        "Mobile"
+                      ],
+                      "example": "Datacenter",
+                      "type": "string"
+                    },
+                    "working": {
+                      "description": "Whether the proxy is working",
+                      "example": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successfully checked proxy"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response",
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "example": "Invalid proxy format",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description",
+                      "example": "Proxy must be in format IP:PORT",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - invalid proxy format"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response",
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "example": "Invalid proxy format",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description",
+                      "example": "Proxy must be in format IP:PORT",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /check": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "checkProxy",
+        "parameters": [
+          {
+            "description": "Proxy address in format IP:PORT (e.g., 1.1.1.1:443)",
+            "in": "query",
+            "name": "proxy",
+            "required": true,
+            "schema": {
+              "example": "1.1.1.1:443",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Status and properties of a checked proxy",
+                  "properties": {
+                    "anonymity": {
+                      "description": "The anonymity level of the proxy",
+                      "enum": [
+                        "transparent",
+                        "anonymous",
+                        "elite"
+                      ],
+                      "example": "elite",
+                      "type": "string"
+                    },
+                    "asn": {
+                      "description": "Autonomous System Number information",
+                      "properties": {
+                        "number": {
+                          "description": "ASN number",
+                          "example": "AS13335",
+                          "type": "string"
+                        },
+                        "organization": {
+                          "description": "ASN organization name",
+                          "example": "Cloudflare, Inc.",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "geo": {
+                      "description": "Geographic location information",
+                      "properties": {
+                        "city": {
+                          "description": "City name",
+                          "example": "Los Angeles",
+                          "type": "string"
+                        },
+                        "country": {
+                          "description": "Country name",
+                          "example": "United States",
+                          "type": "string"
+                        },
+                        "country_code": {
+                          "description": "ISO country code",
+                          "example": "US",
+                          "type": "string"
+                        },
+                        "latitude": {
+                          "description": "Latitude coordinate",
+                          "example": 34.0522,
+                          "format": "float",
+                          "type": "number"
+                        },
+                        "longitude": {
+                          "description": "Longitude coordinate",
+                          "example": -118.2437,
+                          "format": "float",
+                          "type": "number"
+                        },
+                        "region": {
+                          "description": "Region or state",
+                          "example": "California",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "ip": {
+                      "description": "The IP address of the proxy",
+                      "example": "1.1.1.1",
+                      "type": "string"
+                    },
+                    "isp": {
+                      "description": "Internet Service Provider name",
+                      "example": "Cloudflare",
+                      "type": "string"
+                    },
+                    "port": {
+                      "description": "The port number of the proxy",
+                      "example": 443,
+                      "type": "integer"
+                    },
+                    "protocol": {
+                      "description": "The protocol type of the proxy",
+                      "enum": [
+                        "HTTP",
+                        "HTTPS",
+                        "SOCKS4",
+                        "SOCKS5"
+                      ],
+                      "example": "HTTPS",
+                      "type": "string"
+                    },
+                    "proxy": {
+                      "description": "The proxy address that was checked",
+                      "example": "1.1.1.1:443",
+                      "type": "string"
+                    },
+                    "response_time": {
+                      "description": "Response time in milliseconds",
+                      "example": 150,
+                      "type": "integer"
+                    },
+                    "rotation": {
+                      "description": "Whether the proxy is static or rotating",
+                      "enum": [
+                        "Static",
+                        "Rotating"
+                      ],
+                      "example": "Static",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "The type of proxy infrastructure",
+                      "enum": [
+                        "Datacenter",
+                        "Residential",
+                        "Mobile"
+                      ],
+                      "example": "Datacenter",
+                      "type": "string"
+                    },
+                    "working": {
+                      "description": "Whether the proxy is working",
+                      "example": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successfully checked proxy"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response",
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "example": "Invalid proxy format",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description",
+                      "example": "Proxy must be in format IP:PORT",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - invalid proxy format"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Error response",
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "example": "Invalid proxy format",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description",
+                      "example": "Proxy must be in format IP:PORT",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }
