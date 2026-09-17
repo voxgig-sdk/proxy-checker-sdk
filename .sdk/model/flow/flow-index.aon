@@ -1,4 +1,4 @@
 # Flows
 
-@"BasicCheckFlow.aon"
-@"BasicIpInformationFlow.aon"
+@"./BasicCheckFlow.aon"
+@"./BasicIpInformationFlow.aon"

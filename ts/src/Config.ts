@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      check: {
-      },
-
-      ip_information: {
-      },
-
+        check: {
+        },
+  
+        ip_information: {
+        },
+  
     }
   }
 

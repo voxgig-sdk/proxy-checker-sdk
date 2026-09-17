@@ -105,12 +105,12 @@ local result, err = client:Check():load({ proxy = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/proxy-checker-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/proxy-checker-sdk/releases) |
-| Python | `voxgig-sdk-proxy-checker` | publish pending — [install from git tag](https://github.com/voxgig-sdk/proxy-checker-sdk/releases) |
-| PHP | `voxgig-sdk/proxy-checker` | publish pending — [install from git tag](https://github.com/voxgig-sdk/proxy-checker-sdk/releases) |
+| TypeScript | `@voxgig-sdk/proxy-checker-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/proxy-checker-sdk/tags) |
+| Python | `voxgig-sdk-proxy-checker` | publish pending — [install from git tag](https://github.com/voxgig-sdk/proxy-checker-sdk/tags) |
+| PHP | `voxgig-sdk/proxy-checker` | publish pending — [install from git tag](https://github.com/voxgig-sdk/proxy-checker-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/proxy-checker-sdk/go` | `go get github.com/voxgig-sdk/proxy-checker-sdk/go@latest` |
-| Ruby | `voxgig-sdk-proxy-checker` | publish pending — [install from git tag](https://github.com/voxgig-sdk/proxy-checker-sdk/releases) |
-| Lua | `voxgig-sdk-proxy-checker` | publish pending — [install from git tag](https://github.com/voxgig-sdk/proxy-checker-sdk/releases) |
+| Ruby | `voxgig-sdk-proxy-checker` | publish pending — [install from git tag](https://github.com/voxgig-sdk/proxy-checker-sdk/tags) |
+| Lua | `voxgig-sdk-proxy-checker` | publish pending — [install from git tag](https://github.com/voxgig-sdk/proxy-checker-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/proxy-checker-sdk/go-cli` | `go install github.com/voxgig-sdk/proxy-checker-sdk/go-cli/cmd/proxy-checker@latest` |
 | Go MCP server | `github.com/voxgig-sdk/proxy-checker-sdk/go-mcp` | `go get github.com/voxgig-sdk/proxy-checker-sdk/go-mcp@latest` |
 
