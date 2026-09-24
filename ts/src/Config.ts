@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -142,69 +135,81 @@ class Config {
       "fields": [
         {
           "name": "anonymity",
-          "short": "The anonymity level of the proxy",
-          "type": "`$STRING`"
+          "title": "Anonymity",
+          "type": "`$STRING`",
+          "short": "The anonymity level of the proxy"
         },
         {
           "name": "asn",
-          "short": "Autonomous System Number information",
-          "type": "`$OBJECT`"
+          "title": "Asn",
+          "type": "`$OBJECT`",
+          "short": "Autonomous System Number information"
         },
         {
           "name": "geo",
-          "short": "Geographic location information",
-          "type": "`$OBJECT`"
+          "title": "Geo",
+          "type": "`$OBJECT`",
+          "short": "Geographic location information"
         },
         {
           "name": "ip",
-          "short": "The IP address of the proxy",
-          "type": "`$STRING`"
+          "title": "Ip",
+          "type": "`$STRING`",
+          "short": "The IP address of the proxy"
         },
         {
           "name": "isp",
-          "short": "Internet Service Provider name",
-          "type": "`$STRING`"
+          "title": "Isp",
+          "type": "`$STRING`",
+          "short": "Internet Service Provider name"
         },
         {
           "name": "port",
-          "short": "The port number of the proxy",
-          "type": "`$INTEGER`"
+          "title": "Port",
+          "type": "`$INTEGER`",
+          "short": "The port number of the proxy"
         },
         {
           "name": "protocol",
-          "short": "The protocol type of the proxy",
-          "type": "`$STRING`"
+          "title": "Protocol",
+          "type": "`$STRING`",
+          "short": "The protocol type of the proxy"
         },
         {
           "name": "proxy",
+          "title": "Proxy",
+          "type": "`$STRING`",
           "op": {
             "create": {
               "req": true,
               "type": "`$STRING`"
             }
           },
-          "short": "The proxy address that was checked",
-          "type": "`$STRING`"
+          "short": "The proxy address that was checked"
         },
         {
           "name": "response_time",
-          "short": "Response time in milliseconds",
-          "type": "`$INTEGER`"
+          "title": "Response Time",
+          "type": "`$INTEGER`",
+          "short": "Response time in milliseconds"
         },
         {
           "name": "rotation",
-          "short": "Whether the proxy is static or rotating",
-          "type": "`$STRING`"
+          "title": "Rotation",
+          "type": "`$STRING`",
+          "short": "Whether the proxy is static or rotating"
         },
         {
           "name": "type",
-          "short": "The type of proxy infrastructure",
-          "type": "`$STRING`"
+          "title": "Type",
+          "type": "`$STRING`",
+          "short": "The type of proxy infrastructure"
         },
         {
           "name": "working",
-          "short": "Whether the proxy is working",
-          "type": "`$BOOLEAN`"
+          "title": "Working",
+          "type": "`$BOOLEAN`",
+          "short": "Whether the proxy is working"
         }
       ],
       "name": "check",
@@ -214,7 +219,6 @@ class Config {
           "name": "create",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "POST",
               "orig": "/check",
@@ -223,14 +227,16 @@ class Config {
                   "lit": "check"
                 }
               ],
-              "select": {},
+              "parts": [
+                "check"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "check"
-              ]
+              "args": {},
+              "select": {}
             }
           ]
         },
@@ -239,18 +245,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "1.1.1.1:443",
-                    "kind": "query",
-                    "name": "proxy",
-                    "orig": "proxy",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/check",
@@ -259,18 +253,31 @@ class Config {
                   "lit": "check"
                 }
               ],
-              "select": {
-                "exist": [
-                  "proxy"
-                ]
-              },
+              "parts": [
+                "check"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "check"
-              ]
+              "args": {
+                "query": [
+                  {
+                    "name": "proxy",
+                    "orig": "proxy",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "reqd": true,
+                    "example": "1.1.1.1:443"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "proxy"
+                ]
+              }
             }
           ]
         }
@@ -283,8 +290,9 @@ class Config {
       "fields": [
         {
           "name": "ip",
-          "short": "The IP address of the requesting client",
-          "type": "`$STRING`"
+          "title": "Ip",
+          "type": "`$STRING`",
+          "short": "The IP address of the requesting client"
         }
       ],
       "name": "ip_information",
@@ -294,7 +302,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/myip",
@@ -303,14 +310,16 @@ class Config {
                   "lit": "myip"
                 }
               ],
-              "select": {},
+              "parts": [
+                "myip"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "myip"
-              ]
+              "args": {},
+              "select": {}
             }
           ]
         }

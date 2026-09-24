@@ -24,104 +24,182 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "check": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "anonymity",
-              "req": false,
-              "short": "The anonymity level of the proxy",
-              "type": "`$STRING`"
+          "fields": {
+            "anonymity": {
+              "a": true,
+              "h": "Anonymity",
+              "n": "anonymity",
+              "r": false,
+              "sh": "The anonymity level of the proxy",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "asn",
-              "req": false,
-              "short": "Autonomous System Number information",
-              "type": "`$OBJECT`"
+            "asn": {
+              "a": true,
+              "h": "Asn",
+              "n": "asn",
+              "r": false,
+              "sh": "Autonomous System Number information",
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "geo",
-              "req": false,
-              "short": "Geographic location information",
-              "type": "`$OBJECT`"
+            "geo": {
+              "a": true,
+              "h": "Geo",
+              "n": "geo",
+              "r": false,
+              "sh": "Geographic location information",
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "ip",
-              "req": false,
-              "short": "The IP address of the proxy",
-              "type": "`$STRING`"
+            "ip": {
+              "a": true,
+              "h": "Ip",
+              "n": "ip",
+              "r": false,
+              "sh": "The IP address of the proxy",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "isp",
-              "req": false,
-              "short": "Internet Service Provider name",
-              "type": "`$STRING`"
+            "isp": {
+              "a": true,
+              "h": "Isp",
+              "n": "isp",
+              "r": false,
+              "sh": "Internet Service Provider name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "port",
-              "req": false,
-              "short": "The port number of the proxy",
-              "type": "`$INTEGER`"
+            "port": {
+              "a": true,
+              "h": "Port",
+              "n": "port",
+              "r": false,
+              "sh": "The port number of the proxy",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "protocol",
-              "req": false,
-              "short": "The protocol type of the proxy",
-              "type": "`$STRING`"
+            "protocol": {
+              "a": true,
+              "h": "Protocol",
+              "n": "protocol",
+              "r": false,
+              "sh": "The protocol type of the proxy",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "proxy",
+            "proxy": {
+              "a": true,
+              "h": "Proxy",
+              "n": "proxy",
               "op": {
                 "create": {
                   "req": true,
                   "type": "`$STRING`"
                 }
               },
-              "req": false,
-              "short": "The proxy address that was checked",
-              "type": "`$STRING`"
+              "r": false,
+              "sh": "The proxy address that was checked",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "response_time",
-              "req": false,
-              "short": "Response time in milliseconds",
-              "type": "`$INTEGER`"
+            "response_time": {
+              "a": true,
+              "h": "Response Time",
+              "n": "response_time",
+              "r": false,
+              "sh": "Response time in milliseconds",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "rotation",
-              "req": false,
-              "short": "Whether the proxy is static or rotating",
-              "type": "`$STRING`"
+            "rotation": {
+              "a": true,
+              "h": "Rotation",
+              "n": "rotation",
+              "r": false,
+              "sh": "Whether the proxy is static or rotating",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": false,
-              "short": "The type of proxy infrastructure",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": false,
+              "sh": "The type of proxy infrastructure",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "working",
-              "req": false,
-              "short": "Whether the proxy is working",
-              "type": "`$BOOLEAN`"
+            "working": {
+              "a": true,
+              "h": "Working",
+              "n": "working",
+              "r": false,
+              "sh": "Whether the proxy is working",
+              "t": "`$BOOLEAN`"
             }
-          ],
+          },
           "name": "check",
           "op": {
             "create": {
@@ -129,24 +207,24 @@
               "name": "create",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "POST /check",
-                    "json": "{\"operationId\":\"checkProxyPost\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"proxy\":{\"description\":\"Proxy address in format IP:PORT\",\"example\":\"1.1.1.1:443\",\"type\":\"string\"}},\"required\":[\"proxy\"],\"type\":\"object\"}}},\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Status and properties of a checked proxy\",\"properties\":{\"anonymity\":{\"description\":\"The anonymity level of the proxy\",\"enum\":[\"transparent\",\"anonymous\",\"elite\"],\"example\":\"elite\",\"type\":\"string\"},\"asn\":{\"description\":\"Autonomous System Number information\",\"properties\":{\"number\":{\"description\":\"ASN number\",\"example\":\"AS13335\",\"type\":\"string\"},\"organization\":{\"description\":\"ASN organization name\",\"example\":\"Cloudflare, Inc.\",\"type\":\"string\"}},\"type\":\"object\"},\"geo\":{\"description\":\"Geographic location information\",\"properties\":{\"city\":{\"description\":\"City name\",\"example\":\"Los Angeles\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"example\":\"United States\",\"type\":\"string\"},\"country_code\":{\"description\":\"ISO country code\",\"example\":\"US\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude coordinate\",\"example\":34.0522,\"format\":\"float\",\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude coordinate\",\"example\":-118.2437,\"format\":\"float\",\"type\":\"number\"},\"region\":{\"description\":\"Region or state\",\"example\":\"California\",\"type\":\"string\"}},\"type\":\"object\"},\"ip\":{\"description\":\"The IP address of the proxy\",\"example\":\"1.1.1.1\",\"type\":\"string\"},\"isp\":{\"description\":\"Internet Service Provider name\",\"example\":\"Cloudflare\",\"type\":\"string\"},\"port\":{\"description\":\"The port number of the proxy\",\"example\":443,\"type\":\"integer\"},\"protocol\":{\"description\":\"The protocol type of the proxy\",\"enum\":[\"HTTP\",\"HTTPS\",\"SOCKS4\",\"SOCKS5\"],\"example\":\"HTTPS\",\"type\":\"string\"},\"proxy\":{\"description\":\"The proxy address that was checked\",\"example\":\"1.1.1.1:443\",\"type\":\"string\"},\"response_time\":{\"description\":\"Response time in milliseconds\",\"example\":150,\"type\":\"integer\"},\"rotation\":{\"description\":\"Whether the proxy is static or rotating\",\"enum\":[\"Static\",\"Rotating\"],\"example\":\"Static\",\"type\":\"string\"},\"type\":{\"description\":\"The type of proxy infrastructure\",\"enum\":[\"Datacenter\",\"Residential\",\"Mobile\"],\"example\":\"Datacenter\",\"type\":\"string\"},\"working\":{\"description\":\"Whether the proxy is working\",\"example\":true,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Successfully checked proxy\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Invalid proxy format\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"example\":\"Proxy must be in format IP:PORT\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid proxy format\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Invalid proxy format\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"example\":\"Proxy must be in format IP:PORT\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "POST",
-                  "orig": "/check",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "POST",
+                  "o": "/check",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "check"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -158,40 +236,40 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /check",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "1.1.1.1:443",
-                        "kind": "query",
-                        "name": "proxy",
-                        "orig": "proxy",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "1.1.1.1:443",
+                        "k": "query",
+                        "n": "proxy",
+                        "or": "proxy",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /check",
-                    "json": "{\"operationId\":\"checkProxy\",\"parameters\":[{\"description\":\"Proxy address in format IP:PORT (e.g., 1.1.1.1:443)\",\"in\":\"query\",\"name\":\"proxy\",\"required\":true,\"schema\":{\"example\":\"1.1.1.1:443\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Status and properties of a checked proxy\",\"properties\":{\"anonymity\":{\"description\":\"The anonymity level of the proxy\",\"enum\":[\"transparent\",\"anonymous\",\"elite\"],\"example\":\"elite\",\"type\":\"string\"},\"asn\":{\"description\":\"Autonomous System Number information\",\"properties\":{\"number\":{\"description\":\"ASN number\",\"example\":\"AS13335\",\"type\":\"string\"},\"organization\":{\"description\":\"ASN organization name\",\"example\":\"Cloudflare, Inc.\",\"type\":\"string\"}},\"type\":\"object\"},\"geo\":{\"description\":\"Geographic location information\",\"properties\":{\"city\":{\"description\":\"City name\",\"example\":\"Los Angeles\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"example\":\"United States\",\"type\":\"string\"},\"country_code\":{\"description\":\"ISO country code\",\"example\":\"US\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude coordinate\",\"example\":34.0522,\"format\":\"float\",\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude coordinate\",\"example\":-118.2437,\"format\":\"float\",\"type\":\"number\"},\"region\":{\"description\":\"Region or state\",\"example\":\"California\",\"type\":\"string\"}},\"type\":\"object\"},\"ip\":{\"description\":\"The IP address of the proxy\",\"example\":\"1.1.1.1\",\"type\":\"string\"},\"isp\":{\"description\":\"Internet Service Provider name\",\"example\":\"Cloudflare\",\"type\":\"string\"},\"port\":{\"description\":\"The port number of the proxy\",\"example\":443,\"type\":\"integer\"},\"protocol\":{\"description\":\"The protocol type of the proxy\",\"enum\":[\"HTTP\",\"HTTPS\",\"SOCKS4\",\"SOCKS5\"],\"example\":\"HTTPS\",\"type\":\"string\"},\"proxy\":{\"description\":\"The proxy address that was checked\",\"example\":\"1.1.1.1:443\",\"type\":\"string\"},\"response_time\":{\"description\":\"Response time in milliseconds\",\"example\":150,\"type\":\"integer\"},\"rotation\":{\"description\":\"Whether the proxy is static or rotating\",\"enum\":[\"Static\",\"Rotating\"],\"example\":\"Static\",\"type\":\"string\"},\"type\":{\"description\":\"The type of proxy infrastructure\",\"enum\":[\"Datacenter\",\"Residential\",\"Mobile\"],\"example\":\"Datacenter\",\"type\":\"string\"},\"working\":{\"description\":\"Whether the proxy is working\",\"example\":true,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Successfully checked proxy\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Invalid proxy format\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"example\":\"Proxy must be in format IP:PORT\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid proxy format\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Invalid proxy format\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"example\":\"Proxy must be in format IP:PORT\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/check",
-                  "segments": [
-                    {
-                      "lit": "check"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/check",
+                  "q": {
                     "exist": [
                       "proxy"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "check"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -208,15 +286,16 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "ip",
-              "req": false,
-              "short": "The IP address of the requesting client",
-              "type": "`$STRING`"
+          "fields": {
+            "ip": {
+              "a": true,
+              "h": "Ip",
+              "n": "ip",
+              "r": false,
+              "sh": "The IP address of the requesting client",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "ip_information",
           "op": {
             "load": {
@@ -224,24 +303,24 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /myip",
-                    "json": "{\"operationId\":\"getMyIp\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"ip\":{\"description\":\"The IP address of the requesting client\",\"example\":\"203.0.113.1\",\"type\":\"string\"}},\"type\":\"object\"}},\"text/plain\":{\"schema\":{\"example\":\"203.0.113.1\",\"type\":\"string\"}}},\"description\":\"Successfully retrieved IP address\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response\",\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Invalid proxy format\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"example\":\"Proxy must be in format IP:PORT\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/myip",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/myip",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "myip"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -670,28 +749,28 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "check_ref01"
               },
-              "match": {},
-              "op": "create",
-              "spec": [],
-              "valid": []
+              "m": {},
+              "o": "create",
+              "s": [],
+              "v": []
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "check_ref01",
                 "srcdatavar": "check_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -711,17 +790,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "ip_information_ref01",
                 "srcdatavar": "ip_information_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

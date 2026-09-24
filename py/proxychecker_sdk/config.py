@@ -117,41 +117,50 @@ def make_config():
         "fields": [
           {
             "name": "anonymity",
-            "short": "The anonymity level of the proxy",
+            "title": "Anonymity",
             "type": "`$STRING`",
+            "short": "The anonymity level of the proxy",
           },
           {
             "name": "asn",
-            "short": "Autonomous System Number information",
+            "title": "Asn",
             "type": "`$OBJECT`",
+            "short": "Autonomous System Number information",
           },
           {
             "name": "geo",
-            "short": "Geographic location information",
+            "title": "Geo",
             "type": "`$OBJECT`",
+            "short": "Geographic location information",
           },
           {
             "name": "ip",
-            "short": "The IP address of the proxy",
+            "title": "Ip",
             "type": "`$STRING`",
+            "short": "The IP address of the proxy",
           },
           {
             "name": "isp",
-            "short": "Internet Service Provider name",
+            "title": "Isp",
             "type": "`$STRING`",
+            "short": "Internet Service Provider name",
           },
           {
             "name": "port",
-            "short": "The port number of the proxy",
+            "title": "Port",
             "type": "`$INTEGER`",
+            "short": "The port number of the proxy",
           },
           {
             "name": "protocol",
-            "short": "The protocol type of the proxy",
+            "title": "Protocol",
             "type": "`$STRING`",
+            "short": "The protocol type of the proxy",
           },
           {
             "name": "proxy",
+            "title": "Proxy",
+            "type": "`$STRING`",
             "op": {
               "create": {
                 "req": True,
@@ -159,27 +168,30 @@ def make_config():
               },
             },
             "short": "The proxy address that was checked",
-            "type": "`$STRING`",
           },
           {
             "name": "response_time",
-            "short": "Response time in milliseconds",
+            "title": "Response Time",
             "type": "`$INTEGER`",
+            "short": "Response time in milliseconds",
           },
           {
             "name": "rotation",
-            "short": "Whether the proxy is static or rotating",
+            "title": "Rotation",
             "type": "`$STRING`",
+            "short": "Whether the proxy is static or rotating",
           },
           {
             "name": "type",
-            "short": "The type of proxy infrastructure",
+            "title": "Type",
             "type": "`$STRING`",
+            "short": "The type of proxy infrastructure",
           },
           {
             "name": "working",
-            "short": "Whether the proxy is working",
+            "title": "Working",
             "type": "`$BOOLEAN`",
+            "short": "Whether the proxy is working",
           },
         ],
         "name": "check",
@@ -189,7 +201,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/check",
@@ -198,14 +209,16 @@ def make_config():
                     "lit": "check",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "check",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "check",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -214,18 +227,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "1.1.1.1:443",
-                      "kind": "query",
-                      "name": "proxy",
-                      "orig": "proxy",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/check",
@@ -234,18 +235,31 @@ def make_config():
                     "lit": "check",
                   },
                 ],
+                "parts": [
+                  "check",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "proxy",
+                      "orig": "proxy",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "1.1.1.1:443",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "proxy",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "check",
-                ],
               },
             ],
           },
@@ -258,8 +272,9 @@ def make_config():
         "fields": [
           {
             "name": "ip",
-            "short": "The IP address of the requesting client",
+            "title": "Ip",
             "type": "`$STRING`",
+            "short": "The IP address of the requesting client",
           },
         ],
         "name": "ip_information",
@@ -269,7 +284,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/myip",
@@ -278,14 +292,16 @@ def make_config():
                     "lit": "myip",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "myip",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "myip",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },

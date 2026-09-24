@@ -1,0 +1,169 @@
+# Entity: check
+
+main: kit: entity: check: {
+
+  alias: field: {}
+
+  fields: {
+    anonymity: {
+      h: "Anonymity"
+      n: "anonymity"
+      r: false
+      sh: "The anonymity level of the proxy"
+      t: "`$STRING`"
+    }
+    asn: {
+      h: "Asn"
+      n: "asn"
+      r: false
+      sh: "Autonomous System Number information"
+      t: "`$OBJECT`"
+    }
+    geo: {
+      h: "Geo"
+      n: "geo"
+      r: false
+      sh: "Geographic location information"
+      t: "`$OBJECT`"
+    }
+    ip: {
+      h: "Ip"
+      n: "ip"
+      r: false
+      sh: "The IP address of the proxy"
+      t: "`$STRING`"
+    }
+    isp: {
+      h: "Isp"
+      n: "isp"
+      r: false
+      sh: "Internet Service Provider name"
+      t: "`$STRING`"
+    }
+    port: {
+      h: "Port"
+      n: "port"
+      r: false
+      sh: "The port number of the proxy"
+      t: "`$INTEGER`"
+    }
+    protocol: {
+      h: "Protocol"
+      n: "protocol"
+      r: false
+      sh: "The protocol type of the proxy"
+      t: "`$STRING`"
+    }
+    proxy: {
+      h: "Proxy"
+      n: "proxy"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      sh: "The proxy address that was checked"
+      t: "`$STRING`"
+    }
+    response_time: {
+      h: "Response Time"
+      n: "response_time"
+      r: false
+      sh: "Response time in milliseconds"
+      t: "`$INTEGER`"
+    }
+    rotation: {
+      h: "Rotation"
+      n: "rotation"
+      r: false
+      sh: "Whether the proxy is static or rotating"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "The type of proxy infrastructure"
+      t: "`$STRING`"
+    }
+    working: {
+      h: "Working"
+      n: "working"
+      r: false
+      sh: "Whether the proxy is working"
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "check"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /check"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/check"
+          s: [
+            {
+              lit: "check"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /check"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "1.1.1.1:443"
+                k: "query"
+                n: "proxy"
+                or: "proxy"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/check"
+          q: {
+            exist: [
+              "proxy"
+            ]
+          }
+          s: [
+            {
+              lit: "check"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

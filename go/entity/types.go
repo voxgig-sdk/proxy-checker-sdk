@@ -1,7 +1,7 @@
 // Typed models for the ProxyChecker SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,18 +14,6 @@ import (
 
 // Check is the typed data model for the check entity.
 type Check struct {
-	Anonymity *string `json:"anonymity,omitempty"`
-	Asn *map[string]any `json:"asn,omitempty"`
-	Geo *map[string]any `json:"geo,omitempty"`
-	Ip *string `json:"ip,omitempty"`
-	Isp *string `json:"isp,omitempty"`
-	Port *int `json:"port,omitempty"`
-	Protocol *string `json:"protocol,omitempty"`
-	Proxy *string `json:"proxy,omitempty"`
-	ResponseTime *int `json:"response_time,omitempty"`
-	Rotation *string `json:"rotation,omitempty"`
-	Type *string `json:"type,omitempty"`
-	Working *bool `json:"working,omitempty"`
 }
 
 // CheckLoadMatch is the typed request payload for Check.LoadTyped.
@@ -51,7 +39,6 @@ type CheckCreateData struct {
 
 // IpInformation is the typed data model for the ip_information entity.
 type IpInformation struct {
-	Ip *string `json:"ip,omitempty"`
 }
 
 // IpInformationLoadMatch is the typed request payload for IpInformation.LoadTyped.

@@ -1,0 +1,46 @@
+# Entity: ip_information
+
+main: kit: entity: ip_information: {
+
+  alias: field: {}
+
+  fields: {
+    ip: {
+      h: "Ip"
+      n: "ip"
+      r: false
+      sh: "The IP address of the requesting client"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "ip_information"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /myip"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/myip"
+          s: [
+            {
+              lit: "myip"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
